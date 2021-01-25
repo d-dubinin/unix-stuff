@@ -27,4 +27,3 @@ let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 set conceallevel=2
 let g:tex_conceal="abdmg"
-:set nonumber
