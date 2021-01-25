@@ -1,0 +1,468 @@
+global !p
+texMathZones = ['texMathRegion' + x for x in ['', 'X', 'XX', 'Env', 'EnvStarred', 'Ensured']]
+texIgnoreMathZones = ['texMathTextArg']
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+ignore = texIgnoreMathZoneIds[0]
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+def create_row_placeholders(snip):
+    # retrieving single line from current string and treat it like tabstops
+    # count
+    placeholders_amount = int(snip.buffer[snip.line].strip())
+    # erase current line
+    snip.buffer[snip.line] = ''
+    # create anonymous snippet with expected content and number of tabstops
+    anon_snippet_body = ' & '.join(['$' + str(i+1)
+                                    for i in range(placeholders_amount)])
+    # expand anonymous snippet
+    snip.expand_anon(anon_snippet_body)
+def create_matrix(cols, rows, sep, start, end):
+	res = ""
+	placeholder = 1
+	for _ in range(0, int(rows)):
+		res += start + f"${placeholder} "
+		placeholder += 1
+		for _ in range(0, int(cols) - 1):
+			res += sep + f" ${placeholder} "
+			placeholder += 1
+		res += end
+	return res[:-1]
+def create_matrix_placeholders(snip):
+	# Create anonymous snippet body
+	anon_snippet_body = ""
+	# Get start and end line number of expanded snippet
+	start = snip.snippet_start[0]
+	end = snip.snippet_end[0]
+  # Append current line into anonymous snippet
+	for i in range(start, end + 1):
+		anon_snippet_body += snip.buffer[i]
+		anon_snippet_body += "" if i == end else "\n"
+	# Delete expanded snippet line till second to last line
+	for i in range(start, end):
+		del snip.buffer[start]
+	# Empty last expanded snippet line while preserving the line
+	snip.buffer[start] = ''
+	# Expand anonymous snippet
+	snip.expand_anon(anon_snippet_body)
+endglobal
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet begg "Surround in environment" b
+\begin{$1}
+${VISUAL}
+\end{$1}
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet template "Basic template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[francais]{babel}
+\usepackage{amsmath, amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage{pdfpages}
+\usepackage{mdframed}
+\newmdtheoremenv{theorem}{Théorème}[section]
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{definition}{Définition}[section]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{remark}{Remarque}
+\newtheorem{example}{Exemple}
+
+
+\title{}
+\date{}
+\begin{document}
+\maketitle
+	$0
+\end{document}
+endsnippet
+
+snippet lect "Lecture Template" b
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+	$0
+\end {document}
+endsnippet
+
+snippet mai "Main Lecture" b
+\input{~/Cours/preamble.tex}
+\title{Analyse II}
+\date{}
+\begin{document}
+\maketitle
+\input{~/Cours/header.tex}
+\subfile{lectures/lect1.tex}
+$0
+\end{document}
+endsnippet
+
+snippet => "implies" Ai
+\implies
+endsnippet
+
+snippet <= "implied by" Ai
+\impliedby
+endsnippet
+
+snippet iff "iff" Ai
+\iff
+endsnippet
+
+snippet // "Fraction" i
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet f/ "Fraction" iA
+\\frac{${VISUAL}}{$1}$0
+endsnippet
+
+snippet underb "Under Brace" i
+\\underbrace{${VISUAL}}_\text{$1}$0
+endsnippet
+
+snippet neq "equals" i
+\neq 
+endsnippet
+
+snippet sum "sum" w
+\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+endsnippet
+
+snippet lim "limit" w
+\lim_{${1:n} \to ${2:\infty}}
+endsnippet
+
+snippet prod "product" w
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
+endsnippet
+
+snippet part "d/dx" w
+\frac{\partial ${1:V}}{\partial ${2:x}} $0
+endsnippet
+
+snippet sqrt "\sqrt{}" iA
+\sqrt{${1:${VISUAL}}} $0
+endsnippet
+
+snippet __ "subscript" iA
+_{$1}$0
+endsnippet
+
+snippet oo "\infty" i
+\infty
+endsnippet
+
+snippet <= "leq" iA
+\le
+endsnippet
+
+snippet >= "geq" iA
+\ge
+endsnippet
+
+snippet xx "cross" iA
+\times
+endsnippet
+
+snippet ** "cdot" iA
+\cdot
+endsnippet
+
+snippet int "integral" w
+\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
+endsnippet
+
+snippet -> "mapsto" iA
+\mapsto
+endsnippet
+
+snippet notin "not in " i
+\not\in
+endsnippet
+
+snippet in "in " i
+\in
+endsnippet
+
+snippet uu "cup" iA
+\cup 
+endsnippet
+
+snippet nn "cap" i
+\cap
+endsnippet
+
+snippet UU "bigcup" iA
+\bigcup_{${1:i \in ${2: I}}} $0
+endsnippet
+
+snippet NN "bigcap" iA
+\bigcap_{${1:i \in ${2: I}}} $0
+endsnippet
+
+snippet R "real" i
+\mathbb{R}
+endsnippet
+
+snippet Q "Q" i
+\mathbb{Q}
+endsnippet
+
+snippet Z "Z" i
+\mathbb{Z}
+endsnippet
+
+snippet N "N" i
+\mathbb{N}
+endsnippet
+
+snippet bigfun "Big function" iA
+\begin{align*}
+	$1: $2 &\longrightarrow $3 \\\\
+	$4 &\longmapsto $0
+.\end{align*}
+endsnippet
+
+snippet partfun "Parantheses function" iA
+\[$1=
+\begin{cases}
+$2 & $3  \\\\
+$4 & $5  \\\\
+\end{cases}
+\]
+endsnippet
+
+snippet vide "emptyset" i
+\emptyset
+endsnippet
+
+snippet F "F" i
+\mathbb{F}
+endsnippet
+
+snippet thm "Theorem environment" b
+%
+\begin{theorem}
+	$0
+\end{theorem}
+%
+endsnippet
+
+snippet Prop "Named proposition" b
+%
+\begin{proposition}[${1:${VISUAL:proposition name}}]
+	$0
+\end{proposition}
+%
+endsnippet
+
+snippet Lem "Named lemma" b
+%
+\begin{lemma}[${1:${VISUAL:lemma name}}]
+	$0
+\end{lemma}
+%
+endsnippet
+
+snippet Def "Named defintion" b
+%
+\begin{definition}[${1:${VISUAL:definition name}}]
+	$0
+\end{definition}
+%
+endsnippet
+
+snippet Cor "Named corollary" b
+%
+\begin{corollary}[${1:${VISUAL:corollary name}}]
+	$0
+\end{corollary}
+%
+endsnippet
+
+snippet Thm "Named theorem" b
+%
+\begin{theorem}[${1:${VISUAL:Theorem name}}]
+	$0
+\end{theorem}
+%
+endsnippet
+
+snippet def "Definition environment" b
+%
+\begin{definition}
+	$0
+\end{definition}
+%
+endsnippet
+
+snippet rmq "Remark environment" b
+%
+\begin{remark}
+	$0
+\end{remark}
+%
+endsnippet
+
+snippet cor "Corollary environment" b
+%
+\begin{corollary}
+	$0
+\end{corollary}
+%
+endsnippet
+
+snippet prop "Proposition environment" b
+%
+\begin{proposition}
+	$0
+\end{proposition}
+%
+endsnippet
+
+snippet lem "Lemma environment" b
+%
+\begin{lemma}
+	$0
+\end{lemma}
+%
+endsnippet
+
+snippet ex "Example environment" b
+%
+\begin{example}
+	$0
+\end{example}
+%
+endsnippet
+
+snippet pr "Standard proof environment from amsthm" b
+\begin{proof}
+	$0
+\end{proof}
+endsnippet
+
+snippet today "Date"
+\marginpar{`date +%F`}
+endsnippet
+
+snippet sect "Section"
+\section{$0}
+endsnippet
+
+snippet subsect "Sous-Section"
+\subsection{$0}
+endsnippet
+
+snippet norm "norm" i
+\|$1\|$0
+endsnippet
+
+snippet sub "subset" i
+\subset
+endsnippet
+
+snippet subeq "subseteq" i
+\subseteq
+endsnippet
+
+snippet it "italic" i
+\mathcal{$0}
+endsnippet
+
+snippet go "gothic" i
+\mathfrak{$0}
+endsnippet
+
+
+snippet tensor "tensor" i
+\otimes
+endsnippet
+
+snippet Tensor "Tensor" i
+\bigotimes
+endsnippet
+
+snippet sd "somme directe" i
+\bigoplus
+endsnippet
+
+snippet psd "Produit semi direct" iA
+\rtimes
+endsnippet
+
+snippet item "begin{itemize} / end{itemize}" b
+\begin{itemize}
+\item $0
+\end{itemize}
+endsnippet
+
+
+snippet ll "Saut ligne" i
+\\\\ 
+$0
+endsnippet 
+
+snippet nabl "Nabla" i
+\nabla
+endsnippet
+
+snippet vec "vector" i
+\vec
+endsnippet
+
+#============================================================================
+# Creation
+#============================================================================
+#{{{
+post_jump "create_row_placeholders(snip)"
+snippet "tr(\d+)" "latex table row variable" br
+`!p snip.rv = match.group(1)`
+endsnippet
+post_jump "create_matrix_placeholders(snip)"
+snippet 'mat(\d+),(\d+)' "LaTeX array" br
+\begin{pmatrix}
+`!p
+snip.rv = create_matrix(match.group(2), match.group(1), "&", "\t", "\\\\\\\\\n")
+`$0
+\end{pmatrix}
+endsnippet
+#}}}
+
+snippet ol "Overline" i
+\overline{$1}$0
+endsnippet
+
+snippet ul "Underline" i
+\underline{$1}$0
+endsnippet
+
+snippet bf "bold text" i 
+\mathbf{$1}$0
+endsnippet
+
+snippet normal "Normal group" i
+\trianglelefteq
+endsnippet
+
+snippet eng "Generated" i
+\langle $1 \rangle$0
+endsnippet
