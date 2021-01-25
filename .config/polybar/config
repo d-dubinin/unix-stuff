@@ -9,7 +9,7 @@
 ;   https://github.com/jaagr/polybar/wiki/Configuration
 ;   https://github.com/jaagr/polybar/wiki/Formatting
 ;
-;=====================================================
+;==================================================
 
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
