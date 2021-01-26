@@ -22,4 +22,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled manage=on
 bspc rule -a zathura state=tiled manage=on
 polybar mainbar-bspwm &
+.config/lemonbar/autostart.sh &
 feh --randomize --bg-fill ~/Wallpapers/
