@@ -22,5 +22,6 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled manage=on
 bspc rule -a zathura state=tiled manage=on
 polybar mainbar-bspwm &
-.config/lemonbar/classic.sh &
+.config/lemonbar/modern.sh &
 feh --randomize --bg-fill ~/Wallpapers/
+xdo above -t $(xdo id -n root) $(xdo id -n lemonbar)
