@@ -22,7 +22,7 @@ echo $TIME
 }
 
 while true; do
-	echo "%{c}%{F#ffffff}$(Date) "
+	echo "%{c}%{F#ffffff} $(Date) "
 	#echo " %{B#000433} $(Date) "
 	sleep 1m;
 done

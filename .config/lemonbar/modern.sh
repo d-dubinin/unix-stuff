@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/bash
+
+killall -q lemonbar
+FONT="Iosevka Nerd Font:size=7"
 if test -f $HOME/.cache/wal/colors.sh; then
  source $HOME/.cache/wal/colors.sh
 BG="$color0"
@@ -20,26 +23,14 @@ FGnAOc=#D7B8FE #foreground of not active and occupied tags
 BGnAnOc=#1D1B1F #background of not active and not occupied tags
 FGnAnOc=#F0EEF0 #foreground of not active not occupied tags
 fi
+pkill -f .config/lemonbar/scripts/workspaces.sh
+pkill -f .config/lemonbar/scripts/time.sh
+pkill -f .config/lemonbar/scripts/battery.sh
+pkill -f .config/lemonbar/scripts/activewindow.sh
+#.config/lemonbar/scripts/activewindow.sh	  | lemonbar -f $FONT -g 350x20+225+2 -B $BG&
+.config/lemonbar/scripts/workspaces.sh | lemonbar -f $FONT -g 260x30+32+5 -B $BG -u 2 &
+.config/lemonbar/scripts/time.sh	  | lemonbar -f $FONT -g 60x30+1860+5 -B $BG&
+.config/lemonbar/scripts/battery.sh	  | lemonbar -f $FONT -g 65x30+1780+5 -B $BG&
+echo "%{F$BG} " | lemonbar -f 'NotoSansMono Nerd Font:size=10' -g 32x30+0+5 -B $color10 -p&
 
-Battery() {
-	STATE=$( acpi | awk '{print $4}' | sed 's/,//')
-	#battery_status="$(acpi -b | awk -F '[[:space:]]+|,' '{ print $3 }')"
-	#case "$battery_status" in
-		#'Charging')
-			#echo " %{F#EA7866}$STATE  " ;;
-			##echo "%{B#000433} %{F#EA7866}$STATE  " ;;
-		#'Discharging')
-			#echo " %{F#CE6864}$STATE  " ;;
-			##echo "%{B#000433} %{F#CE6864}$STATE  " ;;
-		#'Full') 
-			#echo " %{F#B5BD68}$STATE  " 
-			##echo "%{B#000433} %{F#00FF00}$STATE  " 
-	#esac
-	echo "%{F#ffffff} $STATE"
-}
 
-while true; do
-	echo "%{l}%{F$color10} ⚡$(Battery)"
-	#echo "%{B#000433}%{l}%{F#FECC6D}⚡$(Battery)"
-	sleep 1m;
-done

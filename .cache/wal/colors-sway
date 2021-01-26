@@ -1,0 +1,21 @@
+set $wallpaper ~/Wallpapers/wp2448301-hiroshi-nagai-wallpapers.jpg
+
+set $background #1c1c1c
+set $foreground #efefef
+
+set $color0 #1c1c1c
+set $color1 #af99ed
+set $color2 #8e94f2
+set $color3 #9fa0ff
+set $color4 #bbadff
+set $color5 #d7b8fe
+set $color6 #7d7abc
+set $color7 #c1c1c1
+set $color8 #3b4252
+set $color9 #7c6c8f
+set $color10 #807bc0
+set $color11 #6869b2
+set $color12 #726d9b
+set $color13 #ceadf3
+set $color14 #5a5787
+set $color15 #efefef

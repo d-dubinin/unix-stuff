@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "~/Wallpapers/wp2448301-hiroshi-nagai-wallpapers.jpg"
+let background = "#1c1c1c"
+let foreground = "#efefef"
+let cursor     = "#efefef"
+
+" Colors
+let color0  = "#1c1c1c"
+let color1  = "#af99ed"
+let color2  = "#8e94f2"
+let color3  = "#9fa0ff"
+let color4  = "#bbadff"
+let color5  = "#d7b8fe"
+let color6  = "#7d7abc"
+let color7  = "#c1c1c1"
+let color8  = "#3b4252"
+let color9  = "#7c6c8f"
+let color10 = "#807bc0"
+let color11 = "#6869b2"
+let color12 = "#726d9b"
+let color13 = "#ceadf3"
+let color14 = "#5a5787"
+let color15 = "#efefef"
