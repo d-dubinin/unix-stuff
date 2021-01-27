@@ -149,3 +149,4 @@ cat ~/.cache/wal/sequences
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias wifico='nmtui'
