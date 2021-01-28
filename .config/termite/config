@@ -46,10 +46,10 @@ cursor_shape = underline
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
+#foreground = #AC3432
 #foreground_bold = #ffffff
-#background = #3f3f3f
-background = rgba(47, 52, 63, 0.95)
+#background = #AC3432
+background = rgba(172, 52, 50, 1)
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
 

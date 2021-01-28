@@ -39,7 +39,7 @@ Battery() {
 }
 
 while true; do
-	echo "%{l}%{F$color10} ⚡$(Battery)"
+	echo "%{l}%{F$color10} $(Battery)"
 	#echo "%{B#000433}%{l}%{F#FECC6D}⚡$(Battery)"
 	sleep 1m;
 done

@@ -1,9 +1,10 @@
 #! /bin/sh
 
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 blueman-applet &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -13,8 +14,9 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config top_padding 20
 
+
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+#bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 floating=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
@@ -22,5 +24,5 @@ bspc rule -a Zathura state=tiled manage=on
 bspc rule -a zathura state=tiled manage=on
 .config/lemonbar/modern.sh &
 feh --randomize --bg-fill ~/Wallpapers/
-xdo above -t $(xdo id -n root) $(xdo id -n lemonbar)
+#xdo above -t $(xdo id -n root) $(xdo id -n lemonbar)
 xrdb -merge .Xresources

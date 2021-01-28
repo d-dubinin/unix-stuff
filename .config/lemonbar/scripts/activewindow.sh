@@ -6,5 +6,5 @@ printf " $(xdotool getwindowfocus getwindowname)"
 
 while true; do
 	echo "%{l}$(ActiveWindow)"
-	sleep 0s;
+sleep 0s;
 done
