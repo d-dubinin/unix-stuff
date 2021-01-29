@@ -1,31 +1,26 @@
-#!/bin/bash
-status=$(playerctl metadata --format "{{ status }}")
-title=`exec playerctl metadata xesam:title`
-artist=`exec playerctl metadata xesam:artist`
+#!/usr/bin/env bash
+# https://redd.it/cz5avk
+IFS=$'\n\t'
 
-spotify_status(){
-	status=$(playerctl metadata --format "{{ status }}")
+scroll=(unbuffer zscroll -l 17 -d 0.5 -r true)
+icon_playing=$'\u25B6'
+icon_paused=$'\u23F8'
 
-	if [[ $status == 'Playing' ]] ; then
-		echo "$(playerctl metadata --format "{{ artist }}") - $(playerctl metadata --format "{{ title }}")"
-	elif [[ $status == 'Paused' ]] ; then
-	echo "$(playerctl metadata --format "{{ artist }}") - $(playerctl metadata --format "{{ title }}")" 
-else
-	echo "Spotify is not active"
-fi
-}
-
-state () {
-	state=$(playerctl metadata --format "{{ status }}" | sed 's/\Playing//' | sed 's/\Paused//')
-
-	echo -n %{A:playerctl --player=vlc,spotify play-pause:}$state%{A}
-}
 while true; do
-	if [[ $(spotify_status) != "Spotify is not active" ]] ; then
-		echo -e "%{l} %{A:playerctl --player=vlc,spotify previous:} %{A}$(state) %{A:playerctl --player=vlc,spotify next:}%{A} $(spotify_status) "
-
-	else
-		echo -e "%{c}Spotify is not active"
-	fi
-	sleep 1;
+	# requires playerctl>=2.0
+	playerctl --follow metadata --format \
+		$'{{status}}\t{{artist}} - {{title}}' |
+	while read -r status line; do
+		(( ${#pid} )) && kill "$pid" > /dev/null 2>&1
+		case $status in
+			Paused) "${scroll[@]}" "$line" & ;;
+			Playing) "${scroll[@]}" "$line" & ;;
+			*) echo "(STOPPED)" ;;
+		esac
+		pid=$!
+	done
+	# no current players
+	echo '(STOPPED)'
+	killall .config/lemonbar/scripts/spotify_buttons.sh
+	sleep 15
 done

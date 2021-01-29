@@ -150,3 +150,9 @@ cat ~/.cache/wal/sequences
 source ~/.cache/wal/colors-tty.sh
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias wifico='nmtui'
+alias sx='startx'
+alias v='vim'
+alias lg='lazygit'
+alias r='ranger'
+alias cl='clear'
+alias nf='clear && neofetch'

@@ -40,7 +40,8 @@ echo "$1" |  sed --posix -e 's/:/\ /g'\
 	-e "s/\ O/\ %{B$BGAOc}%{F$FGAOc}\ /g"\
 	-e "s/\ o/\ %{F$FGAnOc}%{B$BGnAOc}\ /g"\
 	-e "s/\ f/\ %{F$FGnAnOc}%{B$BGnAnOc}\ /g"\
-	-e "s/\ u/\ %{F#DC322F}/g"\
+	-e "s/\ u/\ %{F#DC322F}%{B$BGnAnOc}\ /g"\
+	-e "s/\ U/\ %{F#DC322F}%{B$BGnAnOc}\ /g"\
 	-e "s/\ F/\ %{B$BGAOc}%{F$FGAOc}\ /g"\
 	-e "s/\ \ //g"\
 	-e "s/\ //"\
