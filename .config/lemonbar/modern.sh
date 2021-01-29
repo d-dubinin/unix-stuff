@@ -29,6 +29,7 @@ pkill -f .config/lemonbar/scripts/workspaces.sh
 pkill -f .config/lemonbar/scripts/time.sh
 pkill -f .config/lemonbar/scripts/mpd2.sh
 pkill -f .config/lemonbar/scripts/battery.sh
+#pkill -f .config/lemonbar/scripts/volume.sh
 #.config/lemonbar/scripts/activewindow.sh	  | lemonbar -f $FONT -g 350x20+225+2 -B $BG&
 .config/lemonbar/scripts/workspaces.sh | lemonbar -f $FONT -g 216x30+32+5 -B $BG -u 2 &
 .config/lemonbar/scripts/time.sh	  | lemonbar -f $FONT -g 165x30+1745+5 -B $BG&
@@ -37,3 +38,4 @@ echo "%{F$BG} " | lemonbar -f 'NotoSansMono Nerd Font:size=10' -g 32x30+0+5 -
 
 .config/lemonbar/scripts/mpd2.sh | lemonbar -f $FONT -g 480x30+10+5 -b -B $BG&
 
+#.config/lemonbar/scripts/volume.sh | lemonbar -f $FONT -g 75x30+1200+5 -B $BG&
