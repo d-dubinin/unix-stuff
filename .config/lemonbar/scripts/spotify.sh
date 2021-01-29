@@ -2,7 +2,7 @@
 # https://redd.it/cz5avk
 IFS=$'\n\t'
 
-scroll=(unbuffer zscroll -l 17 -d 0.5 -r true)
+scroll=(unbuffer zscroll -l 20 -d 0.5 -r true)
 icon_playing=$'\u25B6'
 icon_paused=$'\u23F8'
 
@@ -21,6 +21,5 @@ while true; do
 	done
 	# no current players
 	echo '(STOPPED)'
-	killall .config/lemonbar/scripts/spotify_buttons.sh
 	sleep 15
 done

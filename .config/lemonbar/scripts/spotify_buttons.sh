@@ -6,22 +6,21 @@ state () {
 
 	echo -n %{A:playerctl --player=vlc,spotify play-pause:}$state%{A}
 }
-	statel () {
 
-	state_l=$(playerctl metadata --format "{{ status }}" | sed 's/\Playing/ /' | sed 's/\Paused/ /')
+statel (){
+	statel=$(playerctl metadata --format "{{ status }}" | sed 's/\Playing//' | sed 's/\Paused//')
 
-	
-	echo -n %{A:playerctl --player=vlc,spotify previous:} %{A}
+	echo -n %{A:playerctl --player=vlc,spotify previous:}$statel%{A}
 }
 
-stater () {
-	state_r=$(playerctl metadata --format "{{ status }}" | sed 's/\Playing//' | sed 's/\Paused//')
+stater (){
+	stater=$(playerctl metadata --format "{{ status }}" | sed 's/\Playing//' | sed 's/\Paused//')
 
-	echo -n %{A:playerctl --player=vlc,spotify next:}%{A}
+	echo -n %{A:playerctl --player=vlc,spotify next:}$stater%{A}
+
 }
-
 
 while true; do
-	echo -e "%{l} $(statel) $(state) $(stater)" 
+	echo -e "%{l}$(statel) $(state) $(stater)" 
 sleep 1;
 done
