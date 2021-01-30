@@ -1,8 +1,4 @@
-! These are all possible options, presented with default values.
-! xst will fallback to *.option if st.option is not present.
-! see src/config.h for more information about option meanings.
-
-! --- These options only take effect on startup. ---
+!xst fork terminal
 st.termname:     xst-256color
 
 ! Set to a non-zero value to disable window decorations (titlebar, etc) and go borderless.
@@ -95,3 +91,8 @@ st.color18:      #323537
 st.color19:      #464b50
 st.color20:      #838184
 st.color21:      #c3c3c3
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!dzen2
+dzen2.font: NotoSansMono Nerd Font
