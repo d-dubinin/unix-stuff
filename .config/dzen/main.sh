@@ -27,4 +27,4 @@ fi
 
 pkill -f .config/dzen/scripts/power.sh
 
-.config/dzen/scripts/power.sh | dzen2 -fg $FG -bg $BG -p -l '2' -h '30' -w '150' -x "1480" -y "5" -m -sa 'c'
+.config/dzen/scripts/power.sh | dzen2 -fn 'Iosevka Nerd Font' -fn 'NotoSansMono Nerd Font' -fg $FG -bg $BG -p -l '2' -h '30' -w '150' -x "1480" -y "5" -m -sa 'c'

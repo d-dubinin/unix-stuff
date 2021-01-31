@@ -187,3 +187,4 @@ super + Print
     scrot /home/daniil/Screenshots/%Y-%d-%m-%T
 super + shift + s
     teiler
+

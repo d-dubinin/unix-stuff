@@ -37,7 +37,7 @@ pkill -f .config/lemonbar/scripts/spotify_buttons.sh
 .config/lemonbar/scripts/workspaces.sh | lemonbar -f $FONT -g 216x30+32+5 -B $BG -u 2 &
 .config/lemonbar/scripts/time.sh	  | lemonbar -f $FONT -g 165x30+1745+5 -B $BG&
 .config/lemonbar/scripts/battery.sh	  | lemonbar   -f $FONT -f 'NotoSansMono Nerd Font' -g 80x30+1650+5 -B $BG&
-echo "%{F$BG} " | lemonbar -f 'NotoSansMono Nerd Font:size=10' -g 32x30+0+5 -B $color3 -p&
+echo "%{F$BG} " | lemonbar -f 'NotoSansMono Nerd Font:size=10' -g 32x30+0+5 -B $color10 -p&
 
 #.config/lemonbar/scripts/mpd2.sh | lemonbar -f $FONT -g 480x30+10+5 -b -B $BG&
 
