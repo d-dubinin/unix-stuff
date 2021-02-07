@@ -64,7 +64,7 @@ if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
 else:
     snip.rv = ''
-`$2
+`
 endsnippet
 
 snippet template "Basic template" b
@@ -85,7 +85,16 @@ snippet template "Basic template" b
 \newtheorem{corollary}{Corollaire}[theorem]
 \newtheorem{remark}{Remarque}
 \newtheorem{example}{Exemple}
+\usepackage {tikz}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
 
+\newcommand{\incfig}[1]{%
+\def\svgwidth{0.7\columnwidth}
+\import{./figures/}{#1.pdf_tex}
+}
 
 \title{}
 \date{}
@@ -461,4 +470,36 @@ endsnippet
 
 snippet eng "Generated" i
 \langle $1 \rangle$0
+endsnippet
+
+snippet fig "Figure environment" b
+\begin{figure}[ht]
+\centering
+\incfig{$2}
+\caption{${4:$3}}
+\label{fig:${5:${3/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet tikz "Function plot" i
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+	\foreach \x in {-3,-2,-1,1,2,3}
+	\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {$\x$};
+	\foreach \y in {-3,-2,-1,1,2,3}
+	\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {$\y$};
+	\draw[color=black] (0pt,-6pt) node[right] {\footnotesize 0$};
+	\draw[->] (-4, 0) -- (4, 0) node[right] {$x$};
+	\draw[->] (0, -4) -- (0, 4) node[above] {$y$};
+
+$0
+\end{tikzpicture}
+\caption{$1}
+\end{figure}
+endsnippet
+
+snippet draw "draw plot" i
+\draw[line width=1pt,color=black,smooth,samples=100,domain=$1:$2] plot(\x,{$0});
 endsnippet

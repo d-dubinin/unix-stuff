@@ -26,3 +26,4 @@ bspc rule -a zathura state=tiled manage=on
 feh --randomize --bg-fill ~/Wallpapers/
 #xdo above -t $(xdo id -n root) $(xdo id -n lemonbar)
 xrdb -merge .Xresources
+inkscape-figures watch

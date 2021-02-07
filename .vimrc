@@ -2,7 +2,6 @@ syntax on
 filetype plugin on
 nnoremap <C-c> :!g++ -o  %:r.out % -std=c++11<Enter>
 nnoremap <C-x> :!./%:r.out
-
 call plug#begin('~/.vim/plugged')
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
@@ -26,3 +25,8 @@ let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 set conceallevel=2
 let g:tex_conceal="abdmg"
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+nmap <up> gk
+nmap <down> gj
+
