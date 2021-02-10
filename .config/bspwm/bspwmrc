@@ -16,12 +16,14 @@ bspc config top_padding 20
 
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-#bspc rule -a Chromium desktop='^2'
+bspc rule -a Chromium desktop='^3'
 bspc rule -a mplayer2 floating=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled manage=on
 bspc rule -a zathura state=tiled manage=on
+bspc rule -a Inkscape desktop='^2'
+bspc rule -a firefox desktop='^3'
 .config/lemonbar/modern.sh &
 feh --randomize --bg-fill ~/Wallpapers/
 #xdo above -t $(xdo id -n root) $(xdo id -n lemonbar)

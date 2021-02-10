@@ -366,7 +366,7 @@ snippet pr "Standard proof environment from amsthm" b
 endsnippet
 
 snippet today "Date"
-\marginpar{`date +%F`}
+\marginpar{`date +%F`, \jobname}
 endsnippet
 
 snippet sect "Section"
@@ -502,4 +502,8 @@ endsnippet
 
 snippet draw "draw plot" i
 \draw[line width=1pt,color=black,smooth,samples=100,domain=$1:$2] plot(\x,{$0});
+endsnippet
+
+snippet par "New Paragraph" i
+\paragraph {$0}
 endsnippet
