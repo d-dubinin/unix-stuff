@@ -15,7 +15,6 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:livepreview_previewer = 'zathura'
 filetype indent on
-:set number
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -29,3 +28,4 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 nmap <up> gk
 nmap <down> gj
+set number
