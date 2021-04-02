@@ -31,4 +31,4 @@ xrdb -merge .Xresources
 inkscape-figures watch
 wal -R
 $HOME/.config/polybar/launch.sh
-picom &
+#picom &

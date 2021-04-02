@@ -39,7 +39,7 @@ case ${TERM} in
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
 		;;
 	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+		PROMPT_COMMAND='echo -ne "\033_@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
 		;;
 esac
 
@@ -164,3 +164,7 @@ alias nf='clear && neofetch'
 alias dmen='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
 export PATH="/home/daniil/.local/bin:$PATH"
 alias p='wal -o ~/scripts/pywal.sh --theme'
+HOST="\[\033[0;93m\]\h\[\033[m\]"
+ICON="\[\033[1;92m\]λ\[\033[m\]"
+DIR="\[\033[1;94m\]\w\[\033[m\]"
+export PS1=" ${ICON} ${DIR} "
