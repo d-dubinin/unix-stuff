@@ -239,15 +239,15 @@ snippet NN "bigcap" iA
 endsnippet
 
 snippet R "real" i
-\mathbf{R}
+\mathbb{R}
 endsnippet
 
 snippet Q "Q" i
-\mathbf{Q}
+\mathbb{Q}
 endsnippet
 
 snippet Z "Z" i
-\mathbf{Z}
+\mathbb{Z}
 endsnippet
 
 snippet N "N" i
@@ -272,10 +272,6 @@ endsnippet
 
 snippet vide "emptyset" i
 \emptyset
-endsnippet
-
-snippet F "F" i
-\mathbf{F}
 endsnippet
 
 snippet thm "Theorem environment" b
@@ -381,7 +377,7 @@ snippet pr "Standard proof environment from amsthm" b
 endsnippet
 
 snippet today "Date"
-\marginpar{`date +%F`, \jobname}
+\marginpar{`date +%F`}
 endsnippet
 
 snippet sect "Section"
@@ -405,7 +401,7 @@ snippet subeq "subseteq" i
 endsnippet
 
 snippet it "italic" i
-\mathcal{$0}
+\mathcal{$1}$0
 endsnippet
 
 snippet go "gothic" i
@@ -422,7 +418,7 @@ snippet Tensor "Tensor" i
 endsnippet
 
 snippet sd "somme directe" i
-\bigoplus
+\oplus
 endsnippet
 
 snippet psd "Produit semi direct" iA
@@ -445,8 +441,8 @@ snippet nabl "Nabla" i
 \nabla
 endsnippet
 
-snippet vec "vector" i
-\vec
+snippet vc "vector" i
+\vec {$1} $0
 endsnippet
 
 #============================================================================
@@ -575,5 +571,9 @@ snippet txt "Text environment" i
 endsnippet
 
 snippet abs "Absolute value" i
-|$0|
+|$1|$0
+endsnippet
+
+snippet Dt "Delta" i
+\Delta $0
 endsnippet

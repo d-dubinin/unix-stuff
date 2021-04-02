@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/daniil/Wallpapers/madness.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0D0F15",
+        "foreground": "#c6d0cf",
+        "cursor": "#c6d0cf"
+    },
+    "colors": {
+        "color0": "#0D0F15",
+        "color1": "#513562",
+        "color2": "#274F63",
+        "color3": "#525C6B",
+        "color4": "#3F678E",
+        "color5": "#7A7081",
+        "color6": "#4797AB",
+        "color7": "#c6d0cf",
+        "color8": "#8a9190",
+        "color9": "#513562",
+        "color10": "#274F63",
+        "color11": "#525C6B",
+        "color12": "#3F678E",
+        "color13": "#7A7081",
+        "color14": "#4797AB",
+        "color15": "#c6d0cf"
+    }
+}

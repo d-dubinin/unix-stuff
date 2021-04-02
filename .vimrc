@@ -29,3 +29,5 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 nmap <up> gk
 nmap <down> gj
 set number
+let g:vimtex_quickfix_enabled = 0
+

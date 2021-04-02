@@ -3,6 +3,7 @@ if test -f $HOME/.cache/wal/colors.sh; then
  source $HOME/.cache/wal/colors.sh
 BG="$color0"
 FG="$color7"
+BGtwo="$color8"
 BGAOc="$color13" #background of active tags
 FGAOc="$color7" #foreground of active and occupied tags
 BGAnOc="$color13" #background of active not occupied tags
@@ -20,7 +21,6 @@ FGnAOc=#D7B8FE #foreground of not active and occupied tags
 BGnAnOc=#1D1B1F #background of not active and not occupied tags
 FGnAnOc=#F0EEF0 #foreground of not active not occupied tags
 fi
-
 Battery() {
 	STATE=$( acpi | awk '{print $4}' | sed 's/,//')
 	#battery_status="$(acpi -b | awk -F '[[:space:]]+|,' '{ print $3 }')"
@@ -40,6 +40,5 @@ Battery() {
 
 while true; do
 	echo "%{l}%{F$color10} $(Battery)"
-	#echo "%{B#000433}%{l}%{F#FECC6D}⚡$(Battery)"
 	sleep 1m;
 done

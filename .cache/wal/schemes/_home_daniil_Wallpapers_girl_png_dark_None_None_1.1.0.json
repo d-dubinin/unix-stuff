@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/daniil/Wallpapers/girl.png",
+    "alpha": "100",
+    "special": {
+        "background": "#181214",
+        "foreground": "#e7e5dd",
+        "cursor": "#e7e5dd"
+    },
+    "colors": {
+        "color0": "#181214",
+        "color1": "#928F8A",
+        "color2": "#A5A29A",
+        "color3": "#B7B4AA",
+        "color4": "#C2BEB3",
+        "color5": "#CDC8BC",
+        "color6": "#D5D0C2",
+        "color7": "#e7e5dd",
+        "color8": "#a1a09a",
+        "color9": "#928F8A",
+        "color10": "#A5A29A",
+        "color11": "#B7B4AA",
+        "color12": "#C2BEB3",
+        "color13": "#CDC8BC",
+        "color14": "#D5D0C2",
+        "color15": "#e7e5dd"
+    }
+}

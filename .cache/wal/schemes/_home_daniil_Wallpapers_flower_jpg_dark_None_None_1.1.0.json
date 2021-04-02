@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/daniil/Wallpapers/flower.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0f12",
+        "foreground": "#d6c2c3",
+        "cursor": "#d6c2c3"
+    },
+    "colors": {
+        "color0": "#0f0f12",
+        "color1": "#553D47",
+        "color2": "#654B51",
+        "color3": "#8E3438",
+        "color4": "#A1575E",
+        "color5": "#B25658",
+        "color6": "#C07D82",
+        "color7": "#d6c2c3",
+        "color8": "#958788",
+        "color9": "#553D47",
+        "color10": "#654B51",
+        "color11": "#8E3438",
+        "color12": "#A1575E",
+        "color13": "#B25658",
+        "color14": "#C07D82",
+        "color15": "#d6c2c3"
+    }
+}

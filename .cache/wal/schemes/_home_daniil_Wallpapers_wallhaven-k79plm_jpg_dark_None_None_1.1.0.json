@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/daniil/Wallpapers/wallhaven-k79plm.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f1216",
+        "foreground": "#cdd9f3",
+        "cursor": "#cdd9f3"
+    },
+    "colors": {
+        "color0": "#0f1216",
+        "color1": "#9594B2",
+        "color2": "#A793A1",
+        "color3": "#C3A09F",
+        "color4": "#D8B6B2",
+        "color5": "#9CA8D5",
+        "color6": "#D5BDC9",
+        "color7": "#cdd9f3",
+        "color8": "#8f97aa",
+        "color9": "#9594B2",
+        "color10": "#A793A1",
+        "color11": "#C3A09F",
+        "color12": "#D8B6B2",
+        "color13": "#9CA8D5",
+        "color14": "#D5BDC9",
+        "color15": "#cdd9f3"
+    }
+}

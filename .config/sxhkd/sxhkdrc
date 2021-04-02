@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	xst
+	st
 
 # program launcher
 super + @space
-	dmenu_run
+	~/scripts/dmen.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -187,4 +187,7 @@ super + Print
     scrot /home/daniil/Screenshots/%Y-%d-%m-%T
 super + shift + s
     teiler
-
+ctrl + alt + shift + {Down,Up}
+    DIR={next,prev}; \
+    bspc node -d "$DIR"; \
+    bspc desktop -f "$DIR"

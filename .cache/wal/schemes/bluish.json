@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/daniil/Wallpapers/wallhaven-rd297m.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0c0f15",
+        "foreground": "#e3e1e5",
+        "cursor": "#e3e1e5"
+    },
+    "colors": {
+        "color0": "#0c0f15",
+        "color1": "#5E728C",
+        "color2": "#748AA1",
+        "color3": "#5DA7B3",
+        "color4": "#939DB0",
+        "color5": "#AFB7C6",
+        "color6": "#BEC0CC",
+        "color7": "#e3e1e5",
+        "color8": "#9e9da0",
+        "color9": "#5E728C",
+        "color10": "#748AA1",
+        "color11": "#5DA7B3",
+        "color12": "#939DB0",
+        "color13": "#AFB7C6",
+        "color14": "#BEC0CC",
+        "color15": "#e3e1e5"
+    }
+}
