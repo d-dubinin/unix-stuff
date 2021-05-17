@@ -7,18 +7,19 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'dylanaraps/wal'
 Plug   'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:livepreview_previewer = 'zathura'
+let g:vimtex_view_general_viewer = 'zathura'
 filetype indent on
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-colorscheme wal
 hi! clear Conceal
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
@@ -29,6 +30,16 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 nmap <up> gk
 nmap <down> gj
 set number
-let g:vimtex_quickfix_enabled = 0
+let g:vimtex_quickfix_enabled = 1
+let g:vimtex_quickfix_mode=0
 let mapleader = "_"
 let maplocalleader = ","
+if (has("nvim"))
+	    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	    endif
+	    if (has("termguicolors"))
+	      set termguicolors
+	      endif
+set background=dark
+colorscheme hybrid_material
+hi! Normal guibg=NONE ctermbg=NONE
