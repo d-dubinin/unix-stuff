@@ -1,5 +1,9 @@
 syntax on
 filetype plugin on
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set cursorline
 nnoremap <C-c> :!g++ -o  %:r.out % -std=c++11<Enter>
 nnoremap <C-x> :!./%:r.out
 call plug#begin('~/.vim/plugged')
@@ -10,7 +14,10 @@ Plug 'honza/vim-snippets'
 Plug   'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'dylanaraps/wal.vim'
+Plug 'bling/vim-bufferline'
 call plug#end()
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -29,17 +36,20 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 nmap <up> gk
 nmap <down> gj
-set number
+set number 
 let g:vimtex_quickfix_enabled = 1
 let g:vimtex_quickfix_mode=0
 let mapleader = "_"
 let maplocalleader = ","
-if (has("nvim"))
-	    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	    endif
-	    if (has("termguicolors"))
+	   if (has("termguicolors"))
 	      set termguicolors
 	      endif
-set background=dark
 colorscheme hybrid_material
+set background=dark
 hi! Normal guibg=NONE ctermbg=NONE
+map gt :bn <enter>
+  augroup vimtex_config
+	      au!
+	          au User VimtexEventQuit call vimtex#compiler#clean(0)
+		    augroup END
+		    
